@@ -1,0 +1,89 @@
+NO ip Helper-Address 10.21.1.0
+
+
+config t
+Dot11 ssid wins21wifi
+authentication open
+authentication key-management wpa
+wpa-psk ascii winser123
+guest-mode
+int dot11Radio 0
+no shut
+encryption mode ciphers tkip
+ssid wins21wifi
+
+
+cisco: vlan 10
+config t
+ip routing 
+int vlan 10
+ip Helper-Address 10.21.1.10
+end
+
+
+
+config t
+no Dot11 ssid winsMwifi
+authentication open
+authentication key-management wpa
+wpa-psk ascii winser123
+guest-mode
+int dot11Radio 0
+no shut
+encryption mode ciphers tkip
+no ssid winsMwifi
+
+cisco helper vlan50
+config t
+ip routing 
+int vlan 10
+ip Helper-Address 10.21.1.10
+end
+
+
+Task 8: Domain name syst/serv inst/config.
+1: powershell 
+
+uninstall-WindowsFeature -name dns -includemanagementtools
+uninstall-WindowsFeature -name dns -includemanagementtools
+
+w22.pinas21.gov.ph.
+cam1.pinas21.gov.ph.
+cam2.pinas21.gov.ph.
+pon1.pinas21.gov.ph.
+cme.pinas21.gov.ph.
+crb.pinas21.gov.ph.
+wap.pinas21.gov.ph.
+
+
+
+
+
+task8.1: advance dns config real world
+_____ empty Host/A
+Cname/ or alias for web,smtp,pop,imap
+MX 
+
+
+realName    Aliases:
+w22         www=web,smtp=sendemail,pop=getemail,imap=
+
+
+www.pinas21.gov.ph.
+w22.pinas21.gov.ph
+
+
+task9: inst & config web serv for apps
+powershell
+install-windowsFeature -name web-server - includemanagementTools
+
+sever manager>tools>ISS Manager(site creation)
+www.pinas21.gov.ph
+
+add-DnsServerResourceRecord -zonename gawako21.com -Cname -name bago -hostname w22.gawako21.com
+New-Website -name "PangApat" -hostheader "bago.gawako21.com" -physicalpath "d:\webs\appbiz"
+
+
+Task 10: inst ur own email server at ur office
+
+
